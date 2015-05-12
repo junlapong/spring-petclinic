@@ -94,10 +94,10 @@
                 <artifactId>jstl-impl</artifactId>
                 <version>1.2</version>
                 <exclusions>
-                        <exclusion>
-                                <groupId>javax.servlet</groupId>
-                                <artifactId>servlet-api</artifactId>
-                        </exclusion>
+                    <exclusion>
+                        <groupId>javax.servlet</groupId>
+                        <artifactId>servlet-api</artifactId>
+                    </exclusion>
                 </exclusions>
         </dependency>
 		<dependency>
@@ -107,6 +107,24 @@
 			<scope>provided</scope>
 		</dependency>
 		<!-- SPRING, SPRING, SPRINGITY SPRING -->
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring-framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring-framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring-framework.version}</version>
+		</dependency>
+
+
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
@@ -394,16 +412,20 @@
 					</descriptorRefs>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>2.0</version>
-				<configuration>
-					<server>tomcat-development-server</server>
-					<port>9966</port>
-					<path>/petclinic</path>
-				</configuration>
-			</plugin>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <server>TomcatServer</server>
+                    <url>http://localhost:8080/manager/text</url>
+                    <port>8080</port>
+                    <update>true</update>
+                    <username>manager</username>
+                    <password>manager</password>
+                    <path>/petclinic</path>
+                </configuration>
+            </plugin>
 			 <plugin>
 		        <groupId>org.codehaus.mojo</groupId>
 		        <artifactId>cobertura-maven-plugin</artifactId>
